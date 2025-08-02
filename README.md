@@ -1,15 +1,15 @@
 # NETFLIX SQL PROJECT
 <img width="2226" height="678" alt="logo" src="https://github.com/user-attachments/assets/ff2b549a-850a-4ce6-ac81-1bee9950eb13" />
 
-## Overview
-This project involves a comprehensive analysis of Netflix's movies and TV shows data using SQL. The goal is to extract valuable insights and answer various business questions based on the dataset. The following README provides a detailed account of the project's objectives, business problems, solutions, findings, and conclusions.
+## About the Project
+Hi! I'm Aafia Ibrahim, an aspiring data analyst, and this is my very first SQL project and GitHub repository. I wanted to explore real-world data and sharpen my SQL skills, so I picked something we all love—Netflix! Using a dataset of Netflix movies and TV shows, I’ve tried to answer interesting questions using SQL queries and draw meaningful insights from the data.
 
-## Objectives
-
-- Analyze the distribution of content types (movies vs TV shows).
-- Identify the most common ratings for movies and TV shows.
-- List and analyze content based on release years, countries, and durations.
-- Explore and categorize content based on specific criteria and keywords.
+## What I Worked On
+-Compared Movies vs TV Shows on the platform
+-Explored common ratings and genres
+-Looked into trends by year, country, and duration
+-Filtered content by directors, keywords, and actors
+-Identified top performers and categories based on specific logic
 
 ## Dataset
 
@@ -50,8 +50,6 @@ FROM netflix
 GROUP BY 1;
 ```
 
-**Objective:** Determine the distribution of content types on Netflix.
-
 ### 2. Find the Most Common Rating for Movies and TV Shows
 
 ```sql
@@ -78,8 +76,6 @@ FROM RankedRatings
 WHERE rank = 1;
 ```
 
-**Objective:** Identify the most frequently occurring rating for each type of content.
-
 ### 3. List All Movies Released in a Specific Year (e.g., 2020)
 
 ```sql
@@ -87,8 +83,6 @@ SELECT *
 FROM netflix
 WHERE release_year = 2020;
 ```
-
-**Objective:** Retrieve all movies released in a specific year.
 
 ### 4. Find the Top 5 Countries with the Most Content on Netflix
 
@@ -107,8 +101,6 @@ ORDER BY total_content DESC
 LIMIT 5;
 ```
 
-**Objective:** Identify the top 5 countries with the highest number of content items.
-
 ### 5. Identify the Longest Movie
 
 ```sql
@@ -119,8 +111,6 @@ WHERE type = 'Movie'
 ORDER BY SPLIT_PART(duration, ' ', 1)::INT DESC;
 ```
 
-**Objective:** Find the movie with the longest duration.
-
 ### 6. Find Content Added in the Last 5 Years
 
 ```sql
@@ -128,8 +118,6 @@ SELECT *
 FROM netflix
 WHERE TO_DATE(date_added, 'Month DD, YYYY') >= CURRENT_DATE - INTERVAL '5 years';
 ```
-
-**Objective:** Retrieve content added to Netflix in the last 5 years.
 
 ### 7. Find All Movies/TV Shows by Director 'Rajiv Chilaka'
 
@@ -144,8 +132,6 @@ FROM (
 WHERE director_name = 'Rajiv Chilaka';
 ```
 
-**Objective:** List all content directed by 'Rajiv Chilaka'.
-
 ### 8. List All TV Shows with More Than 5 Seasons
 
 ```sql
@@ -154,8 +140,6 @@ FROM netflix
 WHERE type = 'TV Show'
   AND SPLIT_PART(duration, ' ', 1)::INT > 5;
 ```
-
-**Objective:** Identify TV shows with more than 5 seasons.
 
 ### 9. Count the Number of Content Items in Each Genre
 
@@ -166,8 +150,6 @@ SELECT
 FROM netflix
 GROUP BY 1;
 ```
-
-**Objective:** Count the number of content items in each genre.
 
 ### 10.Find each year and the average numbers of content release in India on netflix. 
 return top 5 year with highest avg content release!
@@ -188,8 +170,6 @@ ORDER BY avg_release DESC
 LIMIT 5;
 ```
 
-**Objective:** Calculate and rank years by the average number of content releases by India.
-
 ### 11. List All Movies that are Documentaries
 
 ```sql
@@ -197,8 +177,6 @@ SELECT *
 FROM netflix
 WHERE listed_in LIKE '%Documentaries';
 ```
-
-**Objective:** Retrieve all movies classified as documentaries.
 
 ### 12. Find All Content Without a Director
 
@@ -208,8 +186,6 @@ FROM netflix
 WHERE director IS NULL;
 ```
 
-**Objective:** List content that does not have a director.
-
 ### 13. Find How Many Movies Actor 'Salman Khan' Appeared in the Last 10 Years
 
 ```sql
@@ -218,8 +194,6 @@ FROM netflix
 WHERE casts LIKE '%Salman Khan%'
   AND release_year > EXTRACT(YEAR FROM CURRENT_DATE) - 10;
 ```
-
-**Objective:** Count the number of movies featuring 'Salman Khan' in the last 10 years.
 
 ### 14. Find the Top 10 Actors Who Have Appeared in the Highest Number of Movies Produced in India
 
@@ -233,8 +207,6 @@ GROUP BY actor
 ORDER BY COUNT(*) DESC
 LIMIT 10;
 ```
-
-**Objective:** Identify the top 10 actors with the most appearances in Indian-produced movies.
 
 ### 15. Categorize Content Based on the Presence of 'Kill' and 'Violence' Keywords
 
@@ -253,14 +225,19 @@ FROM (
 GROUP BY category;
 ```
 
-**Objective:** Categorize content as 'Bad' if it contains 'kill' or 'violence' and 'Good' otherwise. Count the number of items in each category.
+##  Key Takeaways
+-More movies than shows are available on Netflix.
+-Most popular ratings are TV-MA and TV-14.
+-The US and India lead in content production.
+-Documentaries and dramas dominate genre-wise.
+-Useful insights can be pulled by filtering descriptions and cast data.
 
-## Findings and Conclusion
+##  About Me
+Hi, I'm Aafia Ibrahim – just starting my journey into the world of data analytics. This is my very first project using SQL and I had a lot of fun building it. I’m excited to share more projects soon. Every small project is a big step for me!
 
-- **Content Distribution:** The dataset contains a diverse range of movies and TV shows with varying ratings and genres.
-- **Common Ratings:** Insights into the most common ratings provide an understanding of the content's target audience.
-- **Geographical Insights:** The top countries and the average content releases by India highlight regional content distribution.
-- **Content Categorization:** Categorizing content based on specific keywords helps in understanding the nature of content available on Netflix.
+##  Let’s Connect!
+If you liked this project or have feedback/suggestions, I’d love to hear from you!
+ LinkedIn: (www.linkedin.com/in/aafia-ibrahim-63304b276)
 
-This analysis provides a comprehensive view of Netflix's content and can help inform content strategy and decision-making.
+🎬 More projects coming up — stay tuned!
 
